@@ -4,28 +4,34 @@ public class JShape extends Shape {
     }
 
     @Override
-    void initPointList() {
-        point_list = new Point[4][4];
+    public void initPointList() {
+        pointList = new Point[4][4];
+        startPointList = new Point[4];
 
-        point_list[0][0] = new Point(5, 0, ColorID.ID_RED);
-        point_list[0][1] = new Point(6, 0, ColorID.ID_RED);
-        point_list[0][2] = new Point(7, 0, ColorID.ID_RED);
-        point_list[0][3] = new Point(8, 0, ColorID.ID_RED);
+        pointList[0][0] = new Point(5, 0, Resource.Images.ID_RED);
+        pointList[0][1] = new Point(6, 0, Resource.Images.ID_RED);
+        pointList[0][2] = new Point(7, 0, Resource.Images.ID_RED);
+        pointList[0][3] = new Point(8, 0, Resource.Images.ID_RED);
 
-        point_list[1][0] = new Point(6, -1, ColorID.ID_RED);
-        point_list[1][1] = new Point(6, 0, ColorID.ID_RED);
-        point_list[1][2] = new Point(6, 1, ColorID.ID_RED);
-        point_list[1][3] = new Point(6, 2, ColorID.ID_RED);
+        pointList[1][0] = new Point(6, -1, Resource.Images.ID_RED);
+        pointList[1][1] = new Point(6, 0, Resource.Images.ID_RED);
+        pointList[1][2] = new Point(6, 1, Resource.Images.ID_RED);
+        pointList[1][3] = new Point(6, 2, Resource.Images.ID_RED);
 
-        point_list[2][0] = new Point(5, 0, ColorID.ID_RED);
-        point_list[2][1] = new Point(6, 0, ColorID.ID_RED);
-        point_list[2][2] = new Point(7, 0, ColorID.ID_RED);
-        point_list[2][3] = new Point(8, 0, ColorID.ID_RED);
+        pointList[2][0] = new Point(5, 0, Resource.Images.ID_RED);
+        pointList[2][1] = new Point(6, 0, Resource.Images.ID_RED);
+        pointList[2][2] = new Point(7, 0, Resource.Images.ID_RED);
+        pointList[2][3] = new Point(8, 0, Resource.Images.ID_RED);
 
-        point_list[3][0] = new Point(6, -1, ColorID.ID_RED);
-        point_list[3][1] = new Point(6, 0, ColorID.ID_RED);
-        point_list[3][2] = new Point(6, 1, ColorID.ID_RED);
-        point_list[3][3] = new Point(6, 2, ColorID.ID_RED);
+        pointList[3][0] = new Point(6, -1, Resource.Images.ID_RED);
+        pointList[3][1] = new Point(6, 0, Resource.Images.ID_RED);
+        pointList[3][2] = new Point(6, 1, Resource.Images.ID_RED);
+        pointList[3][3] = new Point(6, 2, Resource.Images.ID_RED);
+
+        startPointList[0] = new Point(5, 0, Resource.Images.ID_RED);
+        startPointList[1] = new Point(6, -1, Resource.Images.ID_RED);
+        startPointList[2] = new Point(5, 0, Resource.Images.ID_RED);
+        startPointList[3] = new Point(6, -1, Resource.Images.ID_RED);
     };
 
 }

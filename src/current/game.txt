@@ -1,0 +1,26 @@
+1100
+ROTATED_UP
+Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty 
+Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty 
+Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty 
+Empty Empty Empty Empty Empty Empty cPurple Empty Empty Empty Empty Empty 
+Empty Empty Empty Empty Empty cPurple cPurple cPurple Empty Empty Empty Empty 
+Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty 
+Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty 
+Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty 
+Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty 
+Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty 
+Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty 
+Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty 
+Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty 
+Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty 
+Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty 
+Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty 
+Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty 
+Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty 
+Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty Empty 
+Empty Empty Empty Empty Empty Empty Blue Blue LBlue Empty LBlue Empty 
+Empty Empty Empty Empty Empty LBlue Blue LBlue LBlue LBlue LBlue Purple 
+Green Green Yellow Red Red Empty LBlue LBlue Green Green Empty Empty 
+pRed
+450

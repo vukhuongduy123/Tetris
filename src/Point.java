@@ -1,39 +1,37 @@
-public class Point {
-    int x, y;
-    final int size = 25;
-    ColorID id;
+import java.awt.image.BufferedImage;
 
-    Point(int x, int y, ColorID id) {
+public class Point {
+    private int x, y;
+    private BufferedImage image;
+    static public final int SIZE = 25;
+
+    public Point(int x, int y, BufferedImage image) {
         this.x = x;
         this.y = y;
-        this.id = id;
+        this.image = image;
     }
 
-    int getSize() {
-        return size;
-    }
-
-    int getX() {
+    public int getX() {
         return x;
     }
 
-    int getY() {
+    public int getY() {
         return y;
     }
 
-    void setX(int x) {
+    public void setX(int x) {
         this.x = x;
     }
 
-    void setY(int y) {
+    public void setY(int y) {
         this.y = y;
     }
 
-    void setColorID(ColorID id) {
-        this.id = id;
+    public void setImage(BufferedImage image) {
+        this.image = image;
     }
 
-    ColorID getColorID() {
-        return id;
+    public BufferedImage getImage() {
+        return image;
     }
 }

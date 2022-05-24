@@ -1,45 +1,22 @@
-
 import java.util.Random;
 import java.awt.Graphics;
-import java.awt.image.BufferedImage;
 
-abstract class Shape {
+class Shape {
     static public enum Type {
         ISHAPE, JSHAPE, LSHAPE, OSHAPE, SSHAPE, TSHAPE, ZSHAPE;
-
-        public static Type getRandomType() {
-            switch (Shape.Type.values()[new Random().nextInt(Shape.Type.values().length)]) {
-                case ISHAPE:
-                    return Shape.Type.ISHAPE;
-                case JSHAPE:
-                    return Shape.Type.JSHAPE;
-                case LSHAPE:
-                    return Shape.Type.LSHAPE;
-                case OSHAPE:
-                    return Shape.Type.OSHAPE;
-                case SSHAPE:
-                    return Shape.Type.SSHAPE;
-                case TSHAPE:
-                    return Shape.Type.TSHAPE;
-                case ZSHAPE:
-                    return Shape.Type.ZSHAPE;
-                default:
-                    return null;
-            }
-        }
     }
 
     static public enum Rotation {
         ROTATED_UP, ROTATED_LEFT, ROTATED_DOWN, ROTATED_RIGHT;
 
-        static public final Rotation[] vals = values();
+        static private final Rotation[] VALS = values();
 
         public static Rotation getNextRotation(Rotation rotation) {
-            return vals[(rotation.ordinal() + 1) % vals.length];
+            return VALS[(rotation.ordinal() + 1) % VALS.length];
         }
 
         public static Rotation getPreviousRotation(Rotation rotation) {
-            return vals[(rotation.ordinal() - 1 + vals.length) % vals.length];
+            return VALS[(rotation.ordinal() - 1 + VALS.length) % VALS.length];
         }
     }
 
@@ -62,36 +39,32 @@ abstract class Shape {
     }
 
     protected Rotation currentRotation;
-    protected Point[][] point_list;
-    protected BufferedImage[] blocks;
+    protected Point[][] pointList;
+    protected Point[] startPointList;
 
     public Shape() {
-        blocks = new BufferedImage[4];
         currentRotation = Rotation.ROTATED_UP;
         initPointList();
     }
 
-    abstract void initPointList();
+    protected void initPointList() {};
 
     public void draw(Graphics g) {
-        for (int i = 0; i < blocks.length; i++)
-            g.drawImage(blocks[i], 26 * point_list[currentRotation.ordinal()][i].getX(),
-                    26 * point_list[currentRotation.ordinal()][i].getY(),
-                    point_list[currentRotation.ordinal()][i].getSize(),
-                    point_list[currentRotation.ordinal()][i].getSize(), null);
-        
+        for (Point p : pointList[currentRotation.ordinal()])
+            g.drawImage(p.getImage(), 26 * p.getX(),
+                    26 * p.getY(), Point.SIZE, Point.SIZE, null);
+
     }
 
     public void drawNextShape(Graphics g) {
-        for (int i = 0; i < blocks.length; i++)
-            g.drawImage(blocks[i], 26 * (GameBoard.ROW + point_list[currentRotation.ordinal()][i].getX() - 5) + 10,
-            26 * point_list[currentRotation.ordinal()][i].getY() + 20 + g.getFontMetrics().getHeight() * 4,
-                    point_list[currentRotation.ordinal()][i].getSize(),
-                    point_list[currentRotation.ordinal()][i].getSize(), null);
+        for (Point p : pointList[currentRotation.ordinal()])
+            g.drawImage(p.getImage(), 26 * (GameBoard.ROW + p.getX() - 5) + 10,
+                    26 * p.getY() + 20 + g.getFontMetrics().getHeight() * 4,
+                    Point.SIZE, Point.SIZE, null);
     }
 
     public Point[] getPointList() {
-        return point_list[currentRotation.ordinal()];
+        return pointList[currentRotation.ordinal()];
     }
 
     public void rotateLeft() {
@@ -119,7 +92,7 @@ abstract class Shape {
                 break;
         }
 
-        for (Point[] points : point_list) {
+        for (Point[] points : pointList) {
             for (Point p : points) {
                 p.setX(p.getX() + x);
                 p.setY(p.getY() + y);
@@ -127,9 +100,95 @@ abstract class Shape {
         }
     }
 
-    public void loadImages() {
-        for (int i = 0; i < blocks.length; i++)
-            blocks[i] = ColorID.getBufferedImageFromColorID(getPointList()[i].getColorID());
-        
+    public Rotation getCurRotation() {
+        return currentRotation;
+    }
+
+    
+    public static Shape getShapeFromID(String id, Rotation r, int x, int y) {
+        Shape shape = null;
+        switch (id) {
+            case "Red":
+                shape = new JShape();
+                break;
+            case "Yellow":
+                shape = new IShape();
+                break;
+            case "Orange":
+                shape = new OShape();
+                break;
+            case "LBlue":
+                shape = new ZShape();
+                break;
+            case "Green":
+                shape = new SShape();
+                break;
+            case "Blue":
+                shape = new LShape();
+                break;
+            case "Purple":
+                shape = new TShape();
+                break;
+        }
+        shape.currentRotation = r;
+        int posX = x - shape.startPointList[shape.currentRotation.ordinal()].getX();
+        int posY = y - shape.startPointList[shape.currentRotation.ordinal()].getY();
+
+        for (Point[] points : shape.pointList) {
+            for (Point p : points) {
+                p.setX(p.getX() + posX);
+                p.setY(p.getY() + posY);
+            }
+        }
+        return shape;
+    }
+
+    public static Shape getShapeFromID(String id) {
+        Shape shape = null;
+        switch (id) {
+            case "Red":
+                shape = new JShape();
+                break;
+            case "Yellow":
+                shape = new IShape();
+                break;
+            case "Orange":
+                shape = new OShape();
+                break;
+            case "LBlue":
+                shape = new ZShape();
+                break;
+            case "Green":
+                shape = new SShape();
+                break;
+            case "Blue":
+                shape = new LShape();
+                break;
+            case "Purple":
+                shape = new TShape();
+                break;
+        }
+        return shape;
+    }
+
+    public static Shape getRandomShape() {
+        switch (Shape.Type.values()[new Random().nextInt(Shape.Type.values().length)]) {
+            case ISHAPE:
+                return new IShape();
+            case JSHAPE:
+                return new JShape();
+            case LSHAPE:
+                return new LShape();
+            case OSHAPE:
+                return new OShape();
+            case SSHAPE:
+                return new SShape();
+            case TSHAPE:
+                return new TShape();
+            case ZSHAPE:
+                return new ZShape();
+            default:
+                return null;
+        }
     }
 }
