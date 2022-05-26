@@ -1,4 +1,4 @@
 bin/
 lib/
 .vscode/
-/out/
+src/out/
